@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css" type="text/css">
+    <script src="dashboard.js" defer></script>
+    <title>Admin | Dashbaord</title>
+</head>
+<body>
+    <div class="grid-container ">
+        <!-- Overlay Element-->
+        <div class="overlay hidden"></div>
+
+        <!-- Add New Students Forms -->
+        <div class="addNewStudent hidden">
+            <h3>Add New Student</h3>
+            <hr>
+            <form action="">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter student full name">
+                <label for="indexNumber">Index Number</label>
+                <input type="text" id="indexNumber" placeholder="Enter index number">
+                <label for="program">Program</label>
+                <input type="text" id="program" placeholder="Enter program of study">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter student email">
+                <button class="submit">Submit</button>
+                <button class="cancel">Cancel</button>
+            </form>
+        </div>
+
+        <!-- Header Wrapper -->
+        <header class="nav-bar">
+            <span class="toggle"><i class="fa-solid fa-bars"></i></span>
+            <div class="user-profile">
+                <img src="/admin-dashboard/dashboard/images/dannykhay.jpg" alt="dannykhay picture">
+                <p class="user-profile-name">Administrator</p>
+            </div>
+        </header>
+        <!-- Main Content Wrapper -->
+        <main class="main-content">
+            <!-- When Dashboard Button is Clicked -->
+            <div class="dashboard-content">
+                <div class="dashboad-welcome-message">
+                    <h2>Dashboard</h2>
+                    <p>Welcome to Fingerprint Attendance System</p>
+                </div>
+                <div class="dashboard-cards">
+                    <div class="total-employee-card dashboard-card">
+                        <h3><i class="fa-solid fa-folder"></i>Total Students</h3>
+                        <div class="loadingAndFigure">
+                            <i class="fa-solid fa-user"></i>
+                            <p>100</p>
+                        </div>
+                    </div>
+                    <div class="ontime dashboard-card">
+                        <h3><i class="fa-solid fa-check"></i>On Time Today</h3>
+                        <div class="loadingAndFigure">
+                            <i class="fa-solid fa-spinner"></i>
+                            <p>50</p>
+                        </div>
+                    </div>
+                    <div class="late dashboard-card">
+                        <h3><i class="fa-solid fa-triangle-exclamation"></i>Late Today</h3>
+                        
+                        <div class="loadingAndFigure">
+                            <i class="fa-solid fa-spinner"></i>
+                            <p>7</p>
+                        </div>
+                    </div>
+                    <div class="ontime-percent dashboard-card">
+                        <h3><i class="fa-solid fa-clock"></i>On Time Percentage</h3>
+                        <div class="loadingAndFigure">
+                            <i class="fa-solid fa-spinner"></i>
+                            <p>50%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- When Student Button is Clicked -->
+             <div class="student hidden">
+                <div class="student-welcome-message">
+                    <h3>Students</h3>
+                    <button class="addStudent">&plus; Add New Student</button>
+                </div>
+                <div class="getData">
+                    <div class="download-file">
+                        <div class="getFiles">
+                            <p>Copy</p>
+                            <p>Excel</p>
+                            <p>PDF</p>
+                            <select name="" id="">
+                                <option value="">Column Visibility</option>
+                            </select>
+                        </div>
+                        <div class="search-bar-wrapper">
+                            <label for="search-bar">search</label> 
+                            <input type="text" id="search-bar">
+                        </div>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Index Number</th>
+                            <th>Program</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>0001</td>
+                            <td>Kwaku Killer</td>
+                            <td>1703805760</td>
+                            <td>Bsc Computer Engineering</td>
+                            <td>kkiller@gmail.com</td>
+                            <td>
+                                <button class="edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button class="delete"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>0002</td>
+                            <td>Kwame Bonsam</td>
+                            <td>1703805761</td>
+                            <td>Bsc Electrical Engineering</td>
+                            <td>kbonsam@gmail.com</td>
+                            <td>
+                                <button class="edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button class="delete"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+             </div>
+             
+             
+        </main>
+
+        <!-- Sidebar Wrapper -->
+        <aside class="sidebar">
+            <h2 class="sidebar-sections">DANNY-KHAY</h2>
+            <section class="main-tool sidebar-sections">
+                <h3>Main</h3>
+                <div class="data-nav">
+                    <a href="#" class="dashboard-btn"><i class="fa-solid fa-gauge"></i>Dashboard</a>
+                    <a href="#" class="student-btn"><i class="fa-solid fa-user"></i>Students</a>
+                </div>
+            </section>
+            <section class="management sidebar-sections">
+                <h3>Management</h3>
+                <div class="data-nav">
+                    <a href="#"><i class="fa-solid fa-clock"></i>Schedule</a>
+                    <a href="#"><i class="fa-solid fa-sheet-plastic"></i>Attendance Sheet</a>
+                    <a href=""><i class="fa-solid fa-sheet-plastic"></i>Sheet Report</a>
+                    <a href=""><i class="fa-solid fa-truck-fast"></i>Attendance Logs</a>
+                </div>
+            </section>
+            <section class="tools sidebar-sections">
+                <h3>Tools</h3>
+                <div class="dat">
+                    <a href=""><i class="fa-solid fa-mobile-screen"></i>Biometric Device</a href="">
+                </div>
+            </section>
+        </aside>
+        <footer class="footer-section">
+            <h2>footer</h2>
+        </footer>
+    </div>
+</body>
+</html>
