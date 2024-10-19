@@ -5,6 +5,7 @@ const dashboardBtn = document.querySelector(".dashboard-btn");
 const dashboardContent = document.querySelector(".dashboard-content");
 const overlayElement = document.querySelector(".overlay")
 const studentContent = document.querySelector(".student");
+const toggleSidebar = document.querySelector(".toggle-sidebar");
 
 // Buttons
 const studentBtn = document.querySelector(".student-btn");
@@ -13,6 +14,7 @@ const addNewStudentForms = document.querySelector(".addNewStudent");
 const newStudentSubmitBtn = document.querySelector(".submit");
 const newStudentCancelBtn = document.querySelector(".cancel");
 const toggleBtn = document.querySelector(".toggle");
+const closeToggleBtn = document.querySelector(".close-toggle");
 
 
 // Click Function for Dashboard button
@@ -44,7 +46,14 @@ newStudentCancelBtn.addEventListener("click", () => {
 
 // Click Function for toggle button
 toggleBtn.addEventListener("click", () => {
-    
+    // console.log('hello')
+    toggleSidebar.classList.toggle('hidden');
 });
 
+// Click Function to close toggle side
 
+// closeToggleBtn.addEventListener("click", () => {
+//     toggleSidebar.classList.add('hidden');
+//     // overlayElement.classList.add('hidden');
+
+// });

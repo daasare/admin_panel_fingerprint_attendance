@@ -19,7 +19,7 @@ body {
 .grid-container {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 250px 1fr;
     grid-template-rows: 60px 1fr 100px;
     grid-template-areas: 
     'sidebar navigation-bar'
@@ -33,7 +33,7 @@ body {
     grid-area: navigation-bar;
     background-color: rgb(223, 223, 223);
     display: inline-flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     padding: 0 2rem;
     font-size: 1.2rem;
@@ -41,7 +41,9 @@ body {
 }
 
 .toggle {
+    display: none;
     cursor: pointer;
+    margin-right: auto;
 }
 
 .nav-bar i {
@@ -71,11 +73,9 @@ body {
 
 /* Main Page */
 .main-content {
-    /* border: 1px solid red; */
+    /* border: 2px solid black; */
     grid-area: main-body;
     padding: 1rem;
-    height: 473px;
-    overflow-y: scroll;
     
 }
 
@@ -131,10 +131,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(223, 223, 223);
-    min-height: 400px;
+    height: 39rem;
     overflow: hidden;
     padding-top: 1rem;
+    overflow-y: scroll;
+
+    /* border: 1px solid blue; */
+    /* background-color: rgb(223, 223, 223); */
+
 }
 .student-welcome-message {
     /* border: 1px solid red; */
@@ -142,14 +146,17 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: .5rem;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px var(--headerBgColor);
+    padding: .5rem;
 }
 
 .student-welcome-message button {
-    padding: .4rem;
+    padding: .6rem;
     background-color: var(--headerBgColor);
     color: #fff;
-    font-weight: 500;
-    font-size: .8rem;
+    font-weight: 600;
+    font-size: .9rem;
     border: none;
     cursor: pointer;
 }
@@ -165,7 +172,6 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    /* border: 1px dotted green; */
 }
 
 .download-file .getFiles p {
@@ -176,8 +182,9 @@ body {
 .download-file .getFiles {
     background-color: var(--headerBgColor);
     color: #fff;
-    padding: .4rem .5rem;
-    min-width: 18rem;
+    padding: .8rem 2rem;
+    max-width: 20.5rem;
+    text-align: center;
 }
 
 .download-file .getFiles section {
@@ -207,6 +214,7 @@ table {
     margin: .5rem 0;
     width: 90%;
     min-width: 35rem;
+    /* box-shadow: 0 2px 5px black; */
     /* border: 1px solid black; */
 }
 
@@ -214,6 +222,7 @@ table, th, td {
     border: 1px solid gray;
     border-collapse: collapse;
     text-align: start;
+    font-weight: 500;
 }
 
 table th {
@@ -227,7 +236,7 @@ table td {
 }
 
 table button {
-    padding: .2rem;
+    padding: .5rem;
     width: 2rem;
     border: none;
     color: #fff;
@@ -255,15 +264,10 @@ table .edit:hover {
 /* Sidebar Section */
 .sidebar {
     grid-area: sidebar;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 10rem 12rem 1fr 1fr;
     background-color: var(--headerBgColor);
     
-}
-
-/* make each section in sidebar box fill available space */
-.sidebar-sections {
-    flex: 1;
 }
 
 .sidebar i {
@@ -274,12 +278,14 @@ table .edit:hover {
     display: block;
     text-decoration: none;
     color: #D8D2C2;
-    padding: .6rem 1rem;
+    padding: .5rem 1.5rem;
+    font-size: 1.2rem;
+
 }
 
 .sidebar a:hover {
-    background-color: #020913;
-    opacity: .2;
+    background-color: #fff;
+    color: var(--headerBgColor);
 }
 
 .sidebar > h2 {
@@ -287,28 +293,73 @@ table .edit:hover {
     justify-content: center;
     align-items: center;
     color: #fff;
+    font-size: 2rem;
 }
 
 .sidebar h3 {
     padding: .6rem 1rem;
-    font-size: .8rem;
+    font-size: 1rem;
     color: #fff;
     text-transform: uppercase;
     opacity: .3;
 }
 
-/* .main-tool {
-    border: 1px solid red;
+/* Toggle sidebar */
+.toggle-sidebar {
+    grid-area: main;
+    width: 100%;
+    max-height: 15rem;
+    padding: 1rem;
+    position: absolute;
+    background-color: rgb(223, 223, 223);
+    top: 3.7rem;
+    left: 0;
+    z-index: 20;
+    color: #000;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    'main manage tool';
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle-sidebar .main {
+    grid-area: main;
+
+}
+
+.toggle-sidebar .manage {
+    grid-area: manage;
     
 }
 
-.management {
-    border: 1px solid indigo;
+.toggle-sidebar .tool {
+    grid-area: tool;
+
 }
 
-.tools {
-    border: 1px solid #876;
-} */
+.toggle-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    height: 200px;
+    /* border: 1px solid blue; */
+}
+
+.toggle-sections a {
+    text-decoration: none;
+    padding: 5px;
+    color: var(--headerBgColor);
+    text-align: center;
+    
+}
+
+
+.toggle-sections a:hover {
+    text-decoration: underline;
+}
 
 .data-nav {
     display: flex;
@@ -320,14 +371,16 @@ table .edit:hover {
 /* Footer Section */
 .footer-section {
     grid-area: footer-section;
-    border: 1px solid maroon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -1px 1px black;
 }
 
 /* Add New Student Forms */
 .addNewStudent {
     min-width:25%;
     min-height: 25rem;
-    /* border: 1px solid black; */
     position: absolute;
     top: 5%;
     left: 50%;
@@ -339,15 +392,16 @@ table .edit:hover {
     flex-direction: column;
     align-items: start;
     box-shadow: 0 0 5px var(--headerBgColor);
+    /* border: 1px solid black; */
 }
 
 .addNewStudent form {
     margin: 2rem 0;
     font-weight: 700;
     font-size: .9rem;
-    /* border: 1px solid blue; */
     height: 90%;
     width: 100%;
+    /* border: 1px solid blue; */
 
 }
 
@@ -414,16 +468,44 @@ hr {
     z-index: 2;
 }
 
-/* Mobile View */
-@media (max-width: 900px){
+/* Laptop View */
+@media (max-width: 1250px){
     .grid-container {
         grid-template-columns: 1fr;
         grid-template-rows: 60px 1fr 100px;
+        grid-template-areas: 
+        'navigation-bar'
+        'main-body'
+        'footer-section';
     }
-
-
 
     .sidebar {
         display: none;
+    }
+
+    .toggle {
+        display: block;
+    }
+
+    .sidebar {
+        grid-area: main;
+        /* display: none; */
+        border: 1px solid red;
+        width: 100px;
+        height: 2rem;
+
+    }
+
+}
+
+@media (max-width: 600px) {
+    .footer-section h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 460px) {
+    .footer-section h2 {
+        font-size: .9rem;
     }
 }
