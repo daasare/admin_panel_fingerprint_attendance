@@ -19,8 +19,8 @@ body {
 .grid-container {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 60px 1fr 100px;
+    grid-template-columns: 250px auto;
+    grid-template-rows: 60px auto 100px;
     grid-template-areas: 
     'sidebar navigation-bar'
     'sidebar main-body'
@@ -76,6 +76,8 @@ body {
     /* border: 2px solid black; */
     grid-area: main-body;
     padding: 1rem;
+    height: 470px;
+    overflow-y: auto;
     
 }
 
@@ -132,9 +134,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 39rem;
-    overflow: hidden;
     padding-top: 1rem;
-    overflow-y: scroll;
 
     /* border: 1px solid blue; */
     /* background-color: rgb(223, 223, 223); */
@@ -215,7 +215,6 @@ table {
     width: 90%;
     min-width: 35rem;
     /* box-shadow: 0 2px 5px black; */
-    /* border: 1px solid black; */
 }
 
 table, th, td {
@@ -265,9 +264,13 @@ table .edit:hover {
 .sidebar {
     grid-area: sidebar;
     display: grid;
-    grid-template-rows: 10rem 12rem 1fr 1fr;
+    grid-template-rows: 150px auto auto 1fr;
     background-color: var(--headerBgColor);
     
+}
+
+.closeIcon {
+    display: none;
 }
 
 .sidebar i {
@@ -299,13 +302,13 @@ table .edit:hover {
 .sidebar h3 {
     padding: .6rem 1rem;
     font-size: 1rem;
-    color: #fff;
+    color: rgba(166, 166, 166, 0.3);
     text-transform: uppercase;
-    opacity: .3;
+    /* opacity: .3; */
 }
 
 /* Toggle sidebar */
-.toggle-sidebar {
+/* .toggle-sidebar {
     grid-area: main;
     width: 100%;
     max-height: 15rem;
@@ -322,7 +325,7 @@ table .edit:hover {
     'main manage tool';
     justify-content: center;
     align-items: center;
-}
+} */
 
 .toggle-sidebar .main {
     grid-area: main;
@@ -479,29 +482,57 @@ hr {
         'footer-section';
     }
 
-    .sidebar {
-        display: none;
-    }
-
     .toggle {
         display: block;
     }
 
     .sidebar {
-        grid-area: main;
-        /* display: none; */
-        border: 1px solid red;
-        width: 100px;
-        height: 2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 250px;
+        background-color: var(--headerBgColor);
+        height: 100%;
+        padding: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: 1s;
+        z-index: 50;
+        /* align-items: center; */
+        
+    }
+
+    .closeIcon {
+       position: absolute;
+       display: block;
+       top: 1rem;
+       right: 1rem;
+    }
+
+    .closeIcon i {
+        background-color: red;
+        color: #fff;
+        padding: .3rem .5rem;
+        cursor: pointer;
 
     }
 
+    .vanish {
+        left: -300px;
+    }
+    
+
+    .sidebar h2 {
+        display: none;
+    }
 }
 
 @media (max-width: 600px) {
     .footer-section h2 {
         font-size: 1.2rem;
     }
+    
 }
 
 @media (max-width: 460px) {
